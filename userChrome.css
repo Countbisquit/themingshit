@@ -1,0 +1,131 @@
+/* Misaka !MiKoto.HE2 Firefox Style
+/* some CSS borrowed from Droid !!HzL0pv6QUwP's CSS. */
+/* This is all kinda a mess, I've not experimented with firefox userchrome before. I've tried
+my best to make it clear what's what. */
+    
+@namespace url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);
+
+/* URL bar colour and style */     
+#main-window #urlbar,
+#main-window #urlbar-container {
+    -moz-appearance:none!important;
+    background-image: none !important;
+    background: transparent !important;
+    color:#000!important;
+    border:none!important;
+    text-align: center;
+}
+
+/* any additional changes for URL bar, and search bar text changes. */
+#urlbar, #searchbar .searchbar-textbox {
+  font-size:95% !important;
+}
+       
+/* makes every tab element transparent. Further tab changes occur nearer the bottom of the file. 
+I wouldn't recommend changing this unless you actual know what you're doing. I sure don't. */
+tabs#tabbrowser-tabs, tabs#tabbrowser-tabs * {
+    -moz-appearance: none !important;
+    background-image: none !important;
+    background: transparent !important;
+    border: none !important;
+}
+     
+/* text colour of the toolbars. */
+.toolbarbutton-text {color:#000!important; }
+     
+/* favicons in the URL bar. Remove or comment if you'd like to see them. */
+#page-proxy-favicon,
+.autocomplete-history-dropmarker.urlbar-history-dropmarker {
+    display:none!important;
+}
+     
+/* the close button for the addon bar. Makes it invisible. You can close it with ctrl+/ */
+#addonbar-closebutton {
+    visibility: collapse !important;
+}
+     
+/* changes that affect the addon bar and other random toolbars in firefox including 
+the 'find' toolbar. In windows, these are the same colour as your window borders. Further 
+Linux/OSX experimentation is required. */
+#textbox-container,
+#addon-bar,
+#browser-bottombox {
+    background-image:none!important;
+    background:transparent!important;
+}
+
+
+/* Firefox button. God fucking damn it it took me forever to figure this shit out. 
+note that width....doesn't seem to do anything. */
+    
+#appmenu-button {
+    width:10px;
+    font-size:0;
+    background: -moz-linear-gradient(rgba(0,0,0,.8), rgba(0,0,0,.8) 100%) !important;
+    -moz-border-left-colors: hsla(0,0%,100%,.5) hsla(210,59%,13%,.9);
+    -moz-border-bottom-colors: hsla(0,0%,100%,.5) hsla(210,59%,13%,.9);
+    -moz-border-right-colors: hsla(0,0%,100%,.5) hsla(210,59%,13%,.9);
+}
+
+/* Tabs, tab colours and fonts. */
+/* changes for all tabs, including font and font size. Also top padding, which may need to
+be adjusted depending on what font you're using. */
+tab { 
+    -moz-appearance: none !important; 
+    font-family: "04b03";
+    font-size: 8px;
+    text-align:center;
+    padding-top: 0;
+}
+/* colour for inactive tabs */
+tab:not([selected="true"]) {
+    color:#555!important;
+}
+/* colour for active tabs*/
+tab[selected="true"] {
+    color:#FFF!important;
+}
+
+/* small extra section for borders between tabs. Adjust thickness and colour as desired. */
+#main-window #tabbrowser-tabs tab {
+    border:0!important;
+    border-right: 1px solid #333!important;
+    border-top: 1px solid #444!important;
+    /*tab background colour. I added this so both tab text colours can be easily read. may
+    look bad on some colour schemes, remove or comment it out if so */
+    background-color: rgba(0,0,0,.2)!important;
+}
+#main-window #tabbrowser-tabs tab[first-tab="true"] {
+    border-left:1px solid #333!important;
+}
+
+/* Remove close buttons from tabs - Comment out or remove if you desire close buttons. */
+/* this makes your tab bar a little thicker, but not enough to make much of a difference. */
+.tab-close-button {display:none!important;}
+
+/* Removes icons from tabs. This is optional, but note that it seems to force bigger tabs. */
+.tabbrowser-tab:not([pinned]) .tab-icon-image:not([src]) {
+    visibility: collapse;
+}
+.tabbrowser-tab:not([pinned]):not([busy]):not([progress]) .tab-icon-image:not([src]) ~ .tab-label {
+    margin-left: 2px !important;
+}
+
+/* Bookmarks bar..apparently. */
+.bookmark-item {
+  font-size:95% !important;
+}
+
+/* Awesome bar suggestions */
+.ac-comment,
+.ac-url-text {
+    font-size:95% !important;
+}
+/* Removes 'star' button for adding favourites - Who doesn't use ctrl+D? */
+/* Also removes 'go' button, because really you're a pleb if you don't use Enter */
+#star-button, 
+#go-button, #go-button-stack {
+    display: none !important;
+}
+
+
